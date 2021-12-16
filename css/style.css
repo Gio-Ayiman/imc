@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  font-size: 1em;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%) ;
+}
+
+#div-content-form {
+  width: 100vw;
+  margin: 0 auto;
+}
+
+#div-form {
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#div-form label {
+  font-size: 1.2em;
+  display: block;
+}
+
+#div-form input,
+#div-form select {
+  border-radius: 5px;
+  width: 98%;
+  height: 40px;
+  margin: 1vh 0;
+  background: #c4c4c4;
+  color: #000000cf;
+}
+
+#div-form input {
+  padding-left: 7px;
+}
+
+#mon-boutton, #ma-liste {
+  padding: 3%;
+  margin: 3vh 35% 0 35%;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  background: #00cd52;
+  border-radius: 35px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.5s;
+}
+
+#mon-boutton:hover, #ma-liste:hover {
+  background-color: #00ac45;
+}
+
+#div-content-result {
+  width: 100vw;
+  margin-bottom: 8vh;
+}
+
+#cercle-resultat {
+  margin: 5vh auto 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #094a70;
+  box-shadow: 0px 0px 10px #64606040;
+  transition: background-color 2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#div-paragraph {
+  width: 94%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#span-resultat {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.9em;
+  transition: text-tranform 1s;
+}
+
+#paragraph-text {
+  margin: 5vh auto 0 auto;
+  font-size: 1.2em;
+}
+
+#span-text-resultat {
+  font-size: 1em;
+  transition: text-transform 1s;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #div-content-form {
+    width: 50vw;
+  }
+
+  #div-content-result {
+    width: 50vw;
+  }
+}

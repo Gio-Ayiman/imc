@@ -7,12 +7,15 @@ const time = document.getElementById("date-hidden");
 const myButton = document.getElementById("mon-boutton");
 
 
-function getImc() {
-  let getPoids = document.getElementById("input-poids").value;
-  let getTaille = document.getElementById("input-taille").value;
-  const age = document.getElementById("input-age").value;
-  const sexe = document.getElementById("select-sexe").value;
 
+function getImc() {
+  const getPoids = document.getElementById("input-poids").value;
+
+  const getTaille = document.getElementById("input-taille").value;
+
+  const age = document.getElementById("input-age").value;
+  const sexe = document.getElementById("select-sexe").value;  
+  
   if (getPoids < 1 || getTaille < 1) {
     alert("Vous devez entrer des valeurs positives");
   } else if (age == "" || sexe == "") {
@@ -30,9 +33,9 @@ function getImc() {
   }
 }
 
-function printResultat(imc){
-  let span = document.getElementById("span-text-resultat");
-  let cercle = document.getElementById("cercle-resultat");
+function printResultat(imc) {
+  const span = document.getElementById("span-text-resultat");
+  const cercle = document.getElementById("cercle-resultat");
 
   if (imc < 18.5) {
     span.innerHTML = "Vous êtes en insuffisance pondérale";
@@ -55,7 +58,7 @@ function printResultat(imc){
   }
 }
 
-function getIndice(){
+function getIndice() {
   let heure = new Date();
   let paragraph = document.getElementById("span-resultat");
   const myMessage = document.getElementById("welcome-message");
@@ -76,23 +79,21 @@ function getIndice(){
   time.value = heure.getFullYear();
 }
 
-myButton.addEventListener("click", function (e) {
-  getIndice();
-});
-
 function printResult() {
-  // const getPoids = document.getElementById("input-poids").value;
-  // const getTaille = document.getElementById("input-taille").value;
-  
   let req = new XMLHttpRequest();
   req.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
+     console.log(this.responseText);
     }
   };
-  req.open("post", "./php/insert.php", true);
-  req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  req.send();
+  req.open("post", "./php/data.php", true);
+  req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  req.send(`indice=${getImc()}`);
 }
 
-printResult();
+
+myButton.addEventListener("click", function (e) {
+  getIndice();
+  printResult();
+});
+// e.preventDefault();

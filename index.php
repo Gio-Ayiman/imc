@@ -20,7 +20,7 @@
     </div>
     <div id="div-content-form">
       <div id="div-form">
-        <form action="./php/insert.php" method="post" id="mon-formulaire">
+        <form action="" method="post" id="mon-formulaire">
           <label for="input-age" id="label-age">Age</label>
           <input type="number" id="input-age" name="age">
           <label for="input-poids" id="label-poids">Poids</label>
@@ -35,9 +35,9 @@
           <input type="number" id="input-taille" placeholder="en cm"  name="taille"/>
           <label for="input-name">Nom</label>
           <input type="text" id="input-name" name="nom">
-          <input type="hidden" id="indice-hidden" name="indice">
-          <input type="hidden" id="statut-hidden" name="statut">
-          <input type="hidden" id="date-hidden" name="annee">
+          <input type="text" id="indice-hidden" name="indice">
+          <input type="text" id="statut-hidden" name="statut">
+          <input type="text" id="date-hidden" name="annee">
           <button type="submit" id="mon-boutton">
             calculer
           </button>

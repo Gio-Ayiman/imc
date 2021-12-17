@@ -14,8 +14,12 @@ body {
   display: flex;
   height: 100vh;
   flex-direction: column;
-  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%) ;
+  background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
+
+/* a{
+  text-decoration: none;
+} */
 
 #div-content-form {
   width: 100vw;
@@ -47,7 +51,7 @@ body {
   padding-left: 7px;
 }
 
-#mon-boutton, #ma-liste {
+.button {
   padding: 3%;
   margin: 3vh 35% 0 35%;
   color: white;
@@ -61,7 +65,7 @@ body {
   transition: background-color 0.5s;
 }
 
-#mon-boutton:hover, #ma-liste:hover {
+.button {
   background-color: #00ac45;
 }
 

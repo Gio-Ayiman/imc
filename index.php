@@ -1,9 +1,10 @@
+<?php?>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 
     <title>Mon IMC</title>
   </head>
@@ -38,10 +39,11 @@
           <input type="hidden" id="indice-hidden" name="indice">
           <input type="hidden" id="statut-hidden" name="statut">
           <input type="hidden" id="date-hidden" name="annee">
-          <button type="button" id="mon-boutton">
+          <button type="button" id="mon-boutton" class="button">
             calculer
           </button>
-          <a href="./php/liste.php" id="ma-liste">Liste</a>
+          <button type="button" id="mon-boutton-clear" class="button">Reinitialiser</button>
+          <a href="./php/liste.php" id="ma-liste" class="button">Liste</a>
         </form>
       </div>
     </div>"

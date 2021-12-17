@@ -1,42 +1,54 @@
-const indice = document.getElementById("indice-hidden");
+const indiceInput = document.getElementById("indice-hidden");
 
-const statut = document.getElementById("statut-hidden");
+const statutInput = document.getElementById("statut-hidden");
 
-const time = document.getElementById("date-hidden");
+const timeInput = document.getElementById("date-hidden");
 
-const myButton = document.getElementById("mon-boutton");
+const buttonInput = document.getElementById("mon-boutton");
 
-const myName = document.getElementById("input-name");
+const nameInput = document.getElementById("input-name");
 
+const poidsInput = document.getElementById("input-poids");
 
-function getImc() {
-  const getPoids = document.getElementById("input-poids").value;
+const tailleInput = document.getElementById("input-taille");
 
-  const getTaille = document.getElementById("input-taille").value;
+const ageInput = document.getElementById("input-age");
 
-  const age = document.getElementById("input-age").value;
-  const sexe = document.getElementById("select-sexe").value;  
+const sexeInput = document.getElementById("select-sexe"); 
+
+const span = document.getElementById("span-text-resultat");
   
-  if (getPoids < 1 || getTaille < 1) {
+const cercle = document.getElementById("cercle-resultat");
+
+const paragraph = document.getElementById("span-resultat");
+  
+const myMessage = document.getElementById("welcome-message");
+
+
+function calcImc() {
+  poids = poidsInput.value;
+  taille = tailleInput.value;
+  age = ageInput.value;
+  sexe = sexeInput.value;
+  
+  if (poids < 1 || taille < 1) {
     alert("Vous devez entrer des valeurs positives");
   } else if (age == "" || sexe == "") {
     alert("Vous devez renseigner tous les champs");
-  } else if (getTaille < 40 || getTaille > 280) {
+  } else if (taille < 40 || taille > 280) {
     alert("Entrez une valeur réelle de taille");
-  } else if (getPoids > 350) {
+  } else if (poids > 350) {
     alert("Entrez une valeur réelle de poids");
-  } else if (getPoids >= 30 && getTaille < 50) {
+  } else if (poids >= 30 && taille < 50) {
     alert("Entrez des valeurs réelles");
   } else {
-    let taille = getTaille * 0.01;
-    let imc = (getPoids / taille ** 2).toFixed(2);
+    let Taille = taille * 0.01;
+    let imc = (poids / Taille ** 2).toFixed(2);
     return imc;
   }
 }
 
 function printStatut(imc) {
-  const span = document.getElementById("span-text-resultat");
-  const cercle = document.getElementById("cercle-resultat");
 
   if (imc < 18.5) {
     span.innerHTML = "Vous êtes en insuffisance pondérale";
@@ -60,14 +72,10 @@ function printStatut(imc) {
 }
 
 function getIndice() {
-  let heure = new Date();
-  let paragraph = document.getElementById("span-resultat");
-  const myMessage = document.getElementById("welcome-message");
-  let span = document.getElementById("span-text-resultat");
+  const heure = new Date();
+  const imc = calcImc();
 
-  const imc = getImc();
-  indice.value = imc;
-
+  indiceInput.value = imc;
   myMessage.style.display = "none";
 
   if (imc != undefined) {
@@ -76,15 +84,15 @@ function getIndice() {
 
   printStatut(imc);
 
-  statut.value = span.textContent;
-  time.value = heure.getFullYear();
+  statutInput.value = span.textContent;
+  timeInput.value = heure.getFullYear();
 }
 
 function sendData() {
-  let imc = getImc();
-  let indication = statut.value;
-  let annee = time.value;
-  let name = myName.value;
+  let imc = calcImc();
+  let indication = statutInput.value;
+  let annee = timeInput.value;
+  let name = nameInput.value;
 
   const data = new FormData();
   let req = new XMLHttpRequest();
@@ -98,8 +106,18 @@ function sendData() {
   req.send(data);
 }
 
+function emptyField(){
+  ageInput.value = " ";
+  poidsInput.value = " ";
+  tailleInput.value = " ";
+  nameInput.value = " ";
+  cercle.value = "";
+  span.value = "";
+}
 
-myButton.addEventListener("click", function (e) {
+
+buttonInput.addEventListener("click", function (e) {
   getIndice();
   sendData();
 });
+  

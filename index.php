@@ -34,7 +34,7 @@
           <label for="input-taille" id="label-taille">Taille</label>
           <input type="number" id="input-taille" placeholder="en cm"  name="taille"/>
           <label for="input-name">Nom</label>
-          <input type="hidden" id="input-name" name="nom">
+          <input type="text" id="input-name" name="nom">
           <input type="hidden" id="indice-hidden" name="indice">
           <input type="hidden" id="statut-hidden" name="statut">
           <input type="hidden" id="date-hidden" name="annee">

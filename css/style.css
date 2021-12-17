@@ -12,17 +12,16 @@
 
 body {
   display: flex;
-  height: 100vh;
   flex-direction: column;
   background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
-/* a{
-    text-decoration: none;
-  } */
+a {
+  text-decoration: none;
+}
 
 #div-content-form {
-  width: 100vw;
+  width: 95vw;
   margin: 0 auto;
 }
 
@@ -51,9 +50,26 @@ body {
   padding-left: 7px;
 }
 
+#div-sur-boutton {
+  width: 100%;
+  padding-top: 30px;
+}
+
+#div-boutton {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:nth-child(2) {
+  display: none;
+}
+
 .button {
   padding: 3%;
-  margin: 3vh 35% 0 35%;
+  margin: 1%;
   color: white;
   font-weight: bold;
   font-size: 1em;
@@ -70,7 +86,7 @@ body {
 }
 
 #div-content-result {
-  width: 100vw;
+  width: 95vw;
   margin-bottom: 8vh;
 }
 

@@ -39,11 +39,17 @@
           <input type="hidden" id="indice-hidden" name="indice">
           <input type="hidden" id="statut-hidden" name="statut">
           <input type="hidden" id="date-hidden" name="annee">
-          <button type="button" id="mon-boutton" class="button">
-            calculer
-          </button>
-          <button type="button" id="mon-boutton-clear" class="button">Reinitialiser</button>
-          <a href="./php/liste.php" id="ma-liste" class="button">Liste</a>
+          <div id="div-sur-boutton">
+            <div id="div-boutton">
+            <button type="button" id="mon-boutton" class="button">
+             calculer
+            </button>
+            <button type="button" id="mon-boutton-clear" class="button">Reinitialiser</button>
+            <a href="./php/liste.php" id="ma-liste" class="button">Lister</a>
+            </div>
+          </div>
+          
+          
         </form>
       </div>
     </div>"

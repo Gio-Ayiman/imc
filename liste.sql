@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `liste`;
 CREATE TABLE IF NOT EXISTS `liste` (
-  `date` year NOT NULL,
+  `annee` year NOT NULL,
   `nom` varchar(50) NOT NULL,
   `indice` varchar(50) NOT NULL,
   `statut` varchar(50) NOT NULL

@@ -34,11 +34,11 @@
           <label for="input-taille" id="label-taille">Taille</label>
           <input type="number" id="input-taille" placeholder="en cm"  name="taille"/>
           <label for="input-name">Nom</label>
-          <input type="text" id="input-name" name="nom">
-          <input type="text" id="indice-hidden" name="indice">
-          <input type="text" id="statut-hidden" name="statut">
-          <input type="text" id="date-hidden" name="annee">
-          <button type="submit" id="mon-boutton">
+          <input type="hidden" id="input-name" name="nom">
+          <input type="hidden" id="indice-hidden" name="indice">
+          <input type="hidden" id="statut-hidden" name="statut">
+          <input type="hidden" id="date-hidden" name="annee">
+          <button type="button" id="mon-boutton">
             calculer
           </button>
           <a href="./php/liste.php" id="ma-liste">Liste</a>

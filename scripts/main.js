@@ -6,6 +6,7 @@ const time = document.getElementById("date-hidden");
 
 const myButton = document.getElementById("mon-boutton");
 
+const myName = document.getElementById("input-name");
 
 
 function getImc() {
@@ -33,7 +34,7 @@ function getImc() {
   }
 }
 
-function printResultat(imc) {
+function printStatut(imc) {
   const span = document.getElementById("span-text-resultat");
   const cercle = document.getElementById("cercle-resultat");
 
@@ -73,27 +74,32 @@ function getIndice() {
     paragraph.innerHTML = imc;
   }
 
-  printResultat(imc);
+  printStatut(imc);
 
   statut.value = span.textContent;
   time.value = heure.getFullYear();
 }
 
-function printResult() {
+function sendData() {
+  let imc = getImc();
+  let indication = statut.value;
+  let annee = time.value;
+  let name = myName.value;
+
+  const data = new FormData();
   let req = new XMLHttpRequest();
-  req.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-     console.log(this.responseText);
-    }
-  };
-  req.open("post", "./php/data.php", true);
-  req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  req.send(`indice=${getImc()}`);
+
+  data.append("nom", `${name}`);
+  data.append("indice", `${imc}`);
+  data.append("statut", `${indication}`);
+  data.append("annee", `${annee}`);
+
+  req.open("post", "./php/insert.php", true);
+  req.send(data);
 }
 
 
 myButton.addEventListener("click", function (e) {
   getIndice();
-  printResult();
+  sendData();
 });
-// e.preventDefault();

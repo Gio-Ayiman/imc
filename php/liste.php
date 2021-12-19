@@ -1,22 +1,25 @@
-<?php 
-require 'connex.php';
+<html>
+    <link rel="stylesheet" href="../css/style.css">
+    <body id="liste-body">
+    
+    <?php require 'connex.php';
 
     $stmt = $conn->prepare("SELECT annee, nom, indice, statut FROM liste");
     $stmt->execute();
     $result = $stmt->fetchAll();
 
-    echo "<table><thead><tr><th>Annee</th><th>Nom</th><th>Indice</th><th>Statut</th></tr></thead>";
+    echo "<div id='div-table'><table id='myTable'><thead><tr><th>Annee</th><th>Nom</th><th>Indice</th><th>Statut</th></tr></thead>";
 
     foreach($result as $res) {
        echo "<tbody><td>".$res['annee'] . "</td>"."<td>". $res['nom'] . "</td>" . "<td>" . $res['indice'] . "</td>" . "<td>". $res['statut']."</td>";
     };
 
-    echo "</table>";
+    echo "</table></div>";
 
     $conn = null;
 ?>
-    <html>
-        <a href="/imc/index.php">Retour à l'acceuil</a>
-    </html>
+    <div id="button-back" class="button"><a href="/imc/index.php" id="" >Retour à l'acceuil</a></div>
+</body>        
+</html>
 
     

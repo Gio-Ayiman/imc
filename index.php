@@ -8,7 +8,7 @@
 
     <title>Mon IMC</title>
   </head>
-  <body><div id="div-content-result">
+  <body id="index-body"><div id="div-content-result">
       <div id="cercle-resultat">
         <span id="span-resultat">00.00</span>
       </div>
@@ -52,7 +52,7 @@
           
         </form>
       </div>
-    </div>"
+    </div>
   </body>
   <script src="scripts/main.js"></script>
 </html>

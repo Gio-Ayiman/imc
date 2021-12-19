@@ -30,6 +30,7 @@ function calcImc() {
   taille = tailleInput.value;
   age = ageInput.value;
   sexe = sexeInput.value;
+
   
   if (poids < 1 || taille < 1) {
     alert("Vous devez entrer des valeurs positives");
@@ -47,6 +48,9 @@ function calcImc() {
     return imc;
   }
 }
+
+
+
 
 function printStatut(imc) {
 
@@ -69,11 +73,11 @@ function printStatut(imc) {
     span.innerHTML = "Vous êtes en obésité morbide";
     cercle.style.backgroundColor = "red";
   }
+
 }
 
-function getIndice() {
+function getIndice(imc) {
   const heure = new Date();
-  const imc = calcImc();
 
   indiceInput.value = imc;
   myMessage.style.display = "none";
@@ -88,8 +92,8 @@ function getIndice() {
   timeInput.value = heure.getFullYear();
 }
 
-function sendData() {
-  let imc = calcImc();
+function sendData(imc) {
+
   let indication = statutInput.value;
   let annee = timeInput.value;
   let name = nameInput.value;
@@ -117,7 +121,8 @@ function emptyField(){
 
 
 buttonInput.addEventListener("click", function (e) {
-  getIndice();
-  sendData();
+  const imc = calcImc();
+  getIndice(imc);
+  sendData(imc);
 });
   

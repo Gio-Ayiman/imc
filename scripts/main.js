@@ -12,14 +12,14 @@ const tailleInput = document.getElementById("input-taille");
 
 const ageInput = document.getElementById("input-age");
 
-const sexeInput = document.getElementById("select-sexe"); 
+const sexeInput = document.getElementById("select-sexe");
 
 const span = document.getElementById("span-text-resultat");
-  
+
 const cercle = document.getElementById("cercle-resultat");
 
 const paragraph = document.getElementById("span-resultat");
-  
+
 const myMessage = document.getElementById("welcome-message");
 
 const myPopup = document.getElementById("popup");
@@ -32,7 +32,6 @@ function calcImc() {
   taille = tailleInput.value;
   age = ageInput.value;
   sexe = sexeInput.value;
-
   
   if (poids < 1 || taille < 1) {
     alert("Vous devez entrer des valeurs positives");
@@ -51,11 +50,7 @@ function calcImc() {
   }
 }
 
-
-
-
 function printStatut(imc) {
-
   if (imc < 18.5) {
     span.innerHTML = "Vous êtes en insuffisance pondérale";
     cercle.style.backgroundColor = "#FF7A00";
@@ -75,7 +70,6 @@ function printStatut(imc) {
     span.innerHTML = "Vous êtes en obésité morbide";
     cercle.style.backgroundColor = "red";
   }
-
 }
 
 function getIndice(imc) {
@@ -89,10 +83,10 @@ function getIndice(imc) {
   printStatut(imc);
 
   statutInput.value = span.textContent;
+  printPopup();
 }
 
 function sendData(imc) {
-
   let indication = statutInput.value;
   let name = nameInput.value;
 
@@ -107,7 +101,7 @@ function sendData(imc) {
   req.send(data);
 }
 
-function emptyField(){
+function emptyField() {
   ageInput.value = " ";
   poidsInput.value = " ";
   tailleInput.value = " ";
@@ -116,12 +110,18 @@ function emptyField(){
   span.value = "";
 }
 
+const printPopup = () => {
+  myPopup.classList.add("show");
+};
 
-buttonInput.addEventListener("click", function (e) {
+const clearPopup = () => {
+  myPopup.classList.remove("show");
+}
+
+buttonInput.addEventListener("click", function () {
   const imc = calcImc();
   getIndice(imc);
   sendData(imc);
+  setTimeout(clearPopup, 2000);
 
-  // myPopup.classList.toggle("show");
 });
-  

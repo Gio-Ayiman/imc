@@ -26,13 +26,18 @@ const myPopup = document.getElementById("popup");
 
 const myPopupText = document.getElementById("popupText");
 
+const myButtonClearLine = document.getElementsByClassName("clear-line");
+
+const myTable = document.getElementById("myTable");
+
+const myTbody = document.getElementById("tbody");
 
 function calcImc() {
   poids = poidsInput.value;
   taille = tailleInput.value;
   age = ageInput.value;
   sexe = sexeInput.value;
-  
+
   if (poids < 1 || taille < 1) {
     alert("Vous devez entrer des valeurs positives");
   } else if (age == "" || sexe == "") {
@@ -116,12 +121,30 @@ const printPopup = () => {
 
 const clearPopup = () => {
   myPopup.classList.remove("show");
-}
+};
 
 buttonInput.addEventListener("click", function () {
   const imc = calcImc();
   getIndice(imc);
   sendData(imc);
   setTimeout(clearPopup, 2000);
-
 });
+
+const dropData = (id) => {
+  let xhr = new XMLHttpRequest();
+
+  xhr.onload = () => {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.ResponseText);
+    }
+  };
+
+  xhr.open("GET", "../php/delete.php?q="+id);
+  xhr.send();
+};
+
+for(let i = 0; i < myButtonClearLine.length; i++){
+  myButtonClearLine[i].onclick = (e) => {
+    dropData(e.target.id);
+  }
+}

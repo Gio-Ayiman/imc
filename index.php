@@ -9,7 +9,7 @@
     <title>Mon IMC</title>
   </head>
   <body id="index-body"><div id="div-content-result">
-      <div id="cercle-resultat">
+    <div id="cercle-resultat">
         <span id="span-resultat">00.00</span>
       </div>
       <div id="div-paragraph">
@@ -35,24 +35,24 @@
           <label for="input-taille" id="label-taille">Taille</label>
           <input type="number" id="input-taille" placeholder="en cm"  name="taille"/>
           <label for="input-name">Nom</label>
-          <input type="text" id="input-name" name="nom">
+          <input type="text" id="input-name" name="nom" autocomplete="off">
           <input type="hidden" id="indice-hidden" name="indice">
           <input type="hidden" id="statut-hidden" name="statut">
-          <input type="hidden" id="date-hidden" name="annee">
           <div id="div-sur-boutton">
             <div id="div-boutton">
-            <button type="button" id="mon-boutton" class="button">
-             calculer
-            </button>
-            <button type="button" id="mon-boutton-clear" class="button">Reinitialiser</button>
-            <a href="./php/liste.php" id="ma-liste" class="button">Lister</a>
+              <button type="button" id="mon-boutton" class="button">
+                calculer
+              </button>
+              <a href="./php/liste.php" id="ma-liste" class="button">Lister</a>
             </div>
           </div>
           
-          
         </form>
+      </div>
+      <div id="popup" class="popup">
+        <span class="popupText" id="popupText">Vos données ont bien été enregistrées</span>
       </div>
     </div>
   </body>
   <script src="scripts/main.js"></script>
-</html>
+  </html>

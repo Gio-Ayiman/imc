@@ -2,8 +2,6 @@ const indiceInput = document.getElementById("indice-hidden");
 
 const statutInput = document.getElementById("statut-hidden");
 
-const timeInput = document.getElementById("date-hidden");
-
 const buttonInput = document.getElementById("mon-boutton");
 
 const nameInput = document.getElementById("input-name");
@@ -23,6 +21,10 @@ const cercle = document.getElementById("cercle-resultat");
 const paragraph = document.getElementById("span-resultat");
   
 const myMessage = document.getElementById("welcome-message");
+
+const myPopup = document.getElementById("popup");
+
+const myPopupText = document.getElementById("popupText");
 
 
 function calcImc() {
@@ -77,8 +79,6 @@ function printStatut(imc) {
 }
 
 function getIndice(imc) {
-  const heure = new Date();
-
   indiceInput.value = imc;
   myMessage.style.display = "none";
 
@@ -89,13 +89,11 @@ function getIndice(imc) {
   printStatut(imc);
 
   statutInput.value = span.textContent;
-  timeInput.value = heure.getFullYear();
 }
 
 function sendData(imc) {
 
   let indication = statutInput.value;
-  let annee = timeInput.value;
   let name = nameInput.value;
 
   const data = new FormData();
@@ -104,7 +102,6 @@ function sendData(imc) {
   data.append("nom", `${name}`);
   data.append("indice", `${imc}`);
   data.append("statut", `${indication}`);
-  data.append("annee", `${annee}`);
 
   req.open("post", "./php/insert.php", true);
   req.send(data);
@@ -124,5 +121,7 @@ buttonInput.addEventListener("click", function (e) {
   const imc = calcImc();
   getIndice(imc);
   sendData(imc);
+
+  // myPopup.classList.toggle("show");
 });
   

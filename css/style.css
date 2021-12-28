@@ -63,10 +63,6 @@ a {
   justify-content: center;
 }
 
-.button:nth-child(2) {
-  display: none;
-}
-
 .button {
   padding: 3%;
   margin: 1%;
@@ -124,6 +120,38 @@ a {
 #span-text-resultat {
   font-size: 1em;
   transition: text-transform 1s;
+}
+
+.popup {
+  position: absolute;
+  display: inline-block;
+  background-color: #555;
+  padding: 6px;
+  border-radius: 35px;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  /* visibility: hidden; */
+}
+
+.popupText {
+  color: #ffffff;
+  text-align: center;
+}
+
+.show {
+  visibility: visible;
+  animation: affiche .5s;
+}
+
+@keyframes affiche {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -207,13 +235,13 @@ td {
   #div-button-back {
     padding: 10px 0 0 5px;
   }
-  
+
   #link-back {
     width: 180px;
     border: none;
   }
 
-  #link-back:hover{
+  #link-back:hover {
     background: none;
     color: #00cd52;
   }

@@ -1,11 +1,11 @@
 <?php require 'connex.php';
 
-    $date = $_POST['annee'];
+    // $date = new Datetime
     $nom = $_POST['nom'];
     $indice = $_POST['indice'];
     $statut = $_POST['statut'];
     
-    $sql = "INSERT INTO liste (annee, nom, indice, statut) VALUES ($date, '$nom', $indice, '$statut')";
+    $sql = "INSERT INTO liste (nom, indice, statut) VALUES ('$nom', $indice, '$statut')";
     $conn->exec($sql);
     
     $conn = null;

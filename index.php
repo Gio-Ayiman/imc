@@ -1,3 +1,4 @@
+<?php?>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -56,3 +57,4 @@
   </body>
   <script src="scripts/main.js"></script>
   </html>
+

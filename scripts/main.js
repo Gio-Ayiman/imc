@@ -6,6 +6,8 @@ const buttonInput = document.getElementById("mon-boutton");
 
 const nameInput = document.getElementById("input-name");
 
+const mailInput = document.getElementById("input-mail");
+
 const poidsInput = document.getElementById("input-poids");
 
 const tailleInput = document.getElementById("input-taille");
@@ -94,6 +96,7 @@ function getIndice(imc) {
 function sendData(imc) {
   let indication = statutInput.value;
   let name = nameInput.value;
+  let mail = mailInput.value;
 
   const data = new FormData();
   let req = new XMLHttpRequest();
@@ -101,6 +104,7 @@ function sendData(imc) {
   data.append("nom", `${name}`);
   data.append("indice", `${imc}`);
   data.append("statut", `${indication}`);
+  data.append("mail", `${mail}`);
 
   req.open("post", "./php/insert.php", true);
   req.send(data);
@@ -123,12 +127,31 @@ const clearPopup = () => {
   myPopup.classList.remove("show");
 };
 
-buttonInput.addEventListener("click", function () {
+const sendMail = () => {
+  let mail = mailInput.value;
+  let xhr = new XMLHttpRequest();
+
+  xhr.onload = () => {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.ResponseText);
+    }
+  };
+
+  xhr.open("get", "./php/mail.php?mail="+mail);
+  xhr.send();
+}
+
+const validForm = () => {
   const imc = calcImc();
+  if(imc > 30 ){
+    sendMail();
+  }
   getIndice(imc);
   sendData(imc);
   setTimeout(clearPopup, 2000);
-});
+  
+};
+
 
 const dropData = (id) => {
   let xhr = new XMLHttpRequest();

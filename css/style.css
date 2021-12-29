@@ -232,9 +232,50 @@ td {
   background: #00ac45;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 375px) {
+
+  #myTable{
+    border: none;
+  }
+
+  #myTable thead{
+    display: none;
+  }
+
+  #myTable tbody, #myTable tr, #myTable td{
+    display: block;
+    width: 100%;
+  }
+
+  #myTable tr{
+    margin-bottom: 15px;
+  }
+  #myTable tr, #myTable td{
+    border: 1px solid #00ac45;
+
+  }
+  #myTable td{
+    text-align: right;
+    padding: 1% 3% 1% 0;
+    position: relative;
+    height: auto;
+    
+  }
+
+  #myTable td::before{
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    padding-left: 15px;
+    font-weight: bold;
+  }
+
+  #myTable td:nth-child(5){
+    display: none;
+  }
   #div-table {
-    width: 95vw;
+    /* overflow-x: auto; */
+    width: 90vw;
   }
 
   #div-button-back {
@@ -249,5 +290,9 @@ td {
   #link-back:hover {
     background: none;
     color: #00cd52;
+  }
+
+  .clear-line{
+    display: none;
   }
 }

@@ -37,11 +37,13 @@
           <input type="number" id="input-taille" placeholder="en cm"  name="taille"/>
           <label for="input-name">Nom</label>
           <input type="text" id="input-name" name="nom" autocomplete="off">
+          <label for="input-mail">Mail</label>
+          <input type="email" id="input-mail" name="mail" autocomplete="off">
           <input type="hidden" id="indice-hidden" name="indice">
           <input type="hidden" id="statut-hidden" name="statut">
           <div id="div-sur-boutton">
             <div id="div-boutton">
-              <button type="button" id="mon-boutton" class="button">
+              <button type="button" id="mon-boutton" class="button" onclick="validForm()">
                 calculer
               </button>
               <a href="./php/liste.php" id="ma-liste" class="button">Lister</a>
@@ -49,6 +51,11 @@
           </div>
           
         </form>
+        <!-- <form action="./php/mail.php" method="POST">
+          <label for="mail">Mail</label>
+          <input type="mail" name="mail">
+          <button type="submit">Soumettre</button>
+        </form> -->
       </div>
       <div id="popup" class="popup">
         <span class="popupText" id="popupText">Vos données ont bien été enregistrées</span>

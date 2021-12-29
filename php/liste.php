@@ -21,7 +21,7 @@
                 <?php
                     foreach($result as $res) {
                         $id = $res['id'];
-                        print_r("<tbody><td>".$res['temps'] . "</td>"."<td>". $res['nom'] . "</td>" . "<td>" . $res['indice'] . "</td>" . "<td>". $res['statut']."</td>"."<td>"."<button class='clear-line' id=$id>"."</button>"."</td>"."</tbody>"
+                        print_r("<tbody><tr><td data-label='Date'>".$res['temps'] . "</td>"."<td data-label='Nom'>". $res['nom'] . "</td>" . "<td data-label='Indice'>" . $res['indice'] . "</td>" . "<td data-label='Statut'>". $res['statut']."</td>"."<td name='Supprimer'>"."<a href='./liste.php' class='clear-line' id=$id>"."</a>"."</td>"."</tr></tbody>"
                     );
                     };
                         $conn = null;

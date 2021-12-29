@@ -5,4 +5,8 @@
     $sql = "DELETE FROM liste WHERE id=$id";
     $conn->exec($sql);
 
+    header('Location: ../index.php');
+    exit;
+    
     $conn = null;
+    

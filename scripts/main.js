@@ -131,11 +131,11 @@ const sendMail = () => {
   let mail = mailInput.value;
   let xhr = new XMLHttpRequest();
 
-  xhr.onload = () => {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(this.ResponseText);
-    }
-  };
+  // xhr.onload = () => {
+  //   if (this.readyState == 4 && this.status == 200) {
+  //     console.log(this.ResponseText);
+  //   }
+  // };
 
   xhr.open("get", "./php/mail.php?mail="+mail);
   xhr.send();

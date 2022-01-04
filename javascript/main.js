@@ -34,7 +34,7 @@ const myTable = document.getElementById("myTable");
 
 const myTbody = document.getElementById("tbody");
 
-function calcImc() {
+const calcImc = () => {
   poids = poidsInput.value;
   taille = tailleInput.value;
   age = ageInput.value;
@@ -57,7 +57,7 @@ function calcImc() {
   }
 }
 
-function printStatut(imc) {
+const printStatut = (imc) => {
   if (imc < 18.5) {
     span.innerHTML = "Vous êtes en insuffisance pondérale";
     cercle.style.backgroundColor = "#FF7A00";
@@ -79,7 +79,7 @@ function printStatut(imc) {
   }
 }
 
-function getIndice(imc) {
+const getIndice = (imc) => {
   indiceInput.value = imc;
   myMessage.style.display = "none";
 
@@ -93,7 +93,7 @@ function getIndice(imc) {
   printPopup();
 }
 
-function sendData(imc) {
+const sendData = (imc) => {
   let indication = statutInput.value;
   let name = nameInput.value;
   let mail = mailInput.value;
@@ -110,7 +110,7 @@ function sendData(imc) {
   req.send(data);
 }
 
-function emptyField() {
+const emptyField = () => {
   ageInput.value = " ";
   poidsInput.value = " ";
   tailleInput.value = " ";

@@ -1,6 +1,6 @@
 <?php include("connex.php");
 
-    $mail = $_GET['mail'];
+    $mail = htmlspecialchars($_GET['mail']) ;
 
     if(isset($mail) && !($mail == '')){
         $to      = $mail;

@@ -31,6 +31,6 @@
     </div>
     <div id="div-button-back"><a href="../index.php" id="link-back">Retour à l'acceuil</a></div>
 </body>
-<script src="../scripts/main.js"></script>
+<script src="../javascript/main.js"></script>
 
 </html>

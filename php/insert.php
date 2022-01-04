@@ -9,10 +9,10 @@ if (isset($_POST['valider'])) {
     $gender = htmlspecialchars($_POST['gender']);
     $password = htmlspecialchars($_POST['password']);
 
-    if(empty($username) || !preg_match('/^[a-zA-Z0-9]+$/', $username)){
+    if(empty($username) || !preg_match('/^[a-zA-Z0-9_]+$/', $username)){
         $errors['username'] = "Vous devez entrer un nom d'utilisateur valide";
     } else {
-        $req = $conn->prepare("SELECT * FROM user WHERE username  = ?");
+        $req = $conn->prepare("SELECT * FROM users WHERE username  = ?");
         $req->execute([$username]);
         $user = $req->fetch();
         if($user){
@@ -20,10 +20,10 @@ if (isset($_POST['valider'])) {
         }
     }
 
-    if(empty($mail) || filter_var($mail, FILTER_VALIDATE_EMAIL)){
+    if(empty($mail) || !filter_var($mail, FILTER_VALIDATE_EMAIL)){
         $errors['mail'] = "Votre email n'est pas valide";
     } else {
-        $req = $conn->prepare("SELECT * FROM user WHERE mail  = ?");
+        $req = $conn->prepare("SELECT * FROM users WHERE mail  = ?");
         $req->execute([$mail]);
         $user = $req->fetch();
         if($user){
@@ -40,6 +40,8 @@ if (isset($_POST['valider'])) {
         $password = password_hash($password, PASSWORD_BCRYPT);            
         $req->execute([$username, $mail, $birthDate, $password, $gender]);
         header('Location: home.php');
+    } else {
+        debug(($errors));
     }
 }
 $conn = null;

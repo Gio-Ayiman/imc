@@ -1,10 +1,3 @@
-<?php 
-//     session_start();
-
-//     if(!$_SESSION['id'] AND !$_SESSION['mdp']){
-//         header('Location: ../index.php');
-//     }
-// ?>
 <html lang="fr">
 
 <head>

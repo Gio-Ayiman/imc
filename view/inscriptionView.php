@@ -1,5 +1,3 @@
-<?php ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,7 +9,7 @@
 </head>
 
 <body>
-    <form action="insert.php" method="POST" align="center">
+    <form action="../model/registerUser.php" method="POST" align="center">
         <label for="username">Nom d'utilisateur</label>
         <input type="text" name="username" id="username" autocomplete="off"><br><br>
         <label for="mail">Email</label>

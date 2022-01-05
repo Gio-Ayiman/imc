@@ -6,15 +6,9 @@ const buttonInput = document.getElementById("mon-boutton");
 
 const nameInput = document.getElementById("input-name");
 
-const mailInput = document.getElementById("input-mail");
-
 const poidsInput = document.getElementById("input-poids");
 
 const tailleInput = document.getElementById("input-taille");
-
-const ageInput = document.getElementById("input-age");
-
-const sexeInput = document.getElementById("select-sexe");
 
 const span = document.getElementById("span-text-resultat");
 
@@ -37,13 +31,9 @@ const myTbody = document.getElementById("tbody");
 const calcImc = () => {
   poids = poidsInput.value;
   taille = tailleInput.value;
-  age = ageInput.value;
-  sexe = sexeInput.value;
 
   if (poids < 1 || taille < 1) {
     alert("Vous devez entrer des valeurs positives");
-  } else if (age == "" || sexe == "") {
-    alert("Vous devez renseigner tous les champs");
   } else if (taille < 40 || taille > 280) {
     alert("Entrez une valeur réelle de taille");
   } else if (poids > 350) {
@@ -95,18 +85,13 @@ const getIndice = (imc) => {
 
 const sendData = (imc) => {
   let indication = statutInput.value;
-  let name = nameInput.value;
-  let mail = mailInput.value;
 
   const data = new FormData();
   let req = new XMLHttpRequest();
-
-  data.append("nom", `${name}`);
   data.append("indice", `${imc}`);
   data.append("statut", `${indication}`);
-  data.append("mail", `${mail}`);
 
-  req.open("post", "./php/insert.php", true);
+  req.open("post", "/model/insertDataUser", true);
   req.send(data);
 }
 
@@ -143,12 +128,12 @@ const sendMail = () => {
 
 const validForm = () => {
   const imc = calcImc();
-  if(imc > 30 ){
-    sendMail();
-  }
+  // if(imc > 30 ){
+  //   sendMail();
+  // }
   getIndice(imc);
-  sendData(imc);
-  setTimeout(clearPopup, 2000);
+  // sendData(imc);
+  // setTimeout(clearPopup, 2000);
   
 };
 

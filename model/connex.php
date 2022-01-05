@@ -4,6 +4,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname="members_imc";
+$conn;
 
     try {
       $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

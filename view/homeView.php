@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../img/ico/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../public/img//ico/favicon.ico" type="image/x-icon">
 
     <title>Mon IMC</title>
 </head>
 
 <body id="index-body">
+    <a href="../model/logout.php">Se deconnecter</a>
     <div id="div-content-result">
-        <a href="logout.php">Se deconnecter</a>
         <div id="cercle-resultat">
             <span id="span-resultat">00.00</span>
         </div>
@@ -33,10 +33,10 @@
                 <input type="hidden" id="statut-hidden" name="statut">
                 <div id="div-sur-boutton">
                     <div id="div-boutton">
-                        <button type="submit" id="mon-boutton" class="button" onclick="validForm()">
+                        <button type="button" id="mon-boutton" class="button" onclick="validForm()">
                             calculer
                         </button>
-                        <a href="./php/liste.php" id="ma-liste" class="button">Lister</a>
+                        <a href="../model/listData.php" id="ma-liste" class="button">Lister</a>
                     </div>
                 </div>
             </form>
@@ -46,6 +46,6 @@
         </div>
     </div>
 </body>
-<script src="../javascript/main.js"></script>
+<script src="../public/javascript/main.js"></script>
 
 </html>

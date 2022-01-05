@@ -17,7 +17,7 @@
             <input type="password" name="password"><br>
             <button type="submit" name="valider">Valider</button>
         </form>
-        <a href="./php/inscription.php">S'inscrire ?</a>
+        <a href="view/inscriptionView.php">S'inscrire ?</a>
     </div>
 
 </body>

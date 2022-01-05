@@ -1,7 +1,7 @@
 <?php
 
-require './php/connex.php';
-require './php/functions.php';
+require 'connex.php';
+require 'functions.php';
 
 $errors = array();
 
@@ -16,9 +16,9 @@ if (isset($_POST['valider'])) {
         $req->execute(['username' => $identifiant]);
         $user = $req->fetch();
         if (!$user) {
-            header('Location: ./php/inscription.php');
+            header('Location: ./view/inscription.php');
         } else if (password_verify($password, $user['pwd'])) {
-            header('Location: ./php/home.php');
+            header('Location: ./view/homeView.php');
         } else if (password_verify($password, $user['pwd']) == false) {
             echo "Votre identifiant ou mot de passe est incorrect";
         }
